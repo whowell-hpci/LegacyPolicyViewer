@@ -1,0 +1,14 @@
+.form-search {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.search-button {
+  margin-top: 25px;
+}
+.subdued {
+  text-align: center;
+  opacity: 50%;
+}

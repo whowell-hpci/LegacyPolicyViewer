@@ -1,0 +1,11 @@
+<div class="container">
+  <form class="form-search"  (ngSubmit)="loadPolicy()">
+    <h1 class="h3 mb-3 font-weight-normal">Enter the Policy Number</h1>
+    <label for="policyNumber" class="sr-only">Policy #</label>
+    <input type="text" class="form-control" placeholder="Policy #" name="policyNumber" [(ngModel)]="policy.policyNumber">
+    <p class="subdued mt-2">----- OR -----</p>
+    <input type="text" class="form-control mt-2" placeholder="Named Insured?" name="namedInsured">
+
+    <button  class="btn btn-lg btn-primary btn-block search-button" type="submit">Search</button>
+  </form>
+</div>
