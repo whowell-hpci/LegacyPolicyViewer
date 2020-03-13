@@ -25,7 +25,7 @@ export class NavComponent implements OnInit {
       this.userName = this.authService.decodedToken?.unique_name;
       this.alertify.success('Logged in successfully');
     }, error => {
-      this.alertify.error(error);
+      this.alertify.error("You could not be authenticated");
     });
   }
 
