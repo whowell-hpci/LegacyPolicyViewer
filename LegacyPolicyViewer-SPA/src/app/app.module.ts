@@ -12,31 +12,32 @@ import { AlertifyService } from './_services/alertify.service';
 import { PolicyService } from './_services/policy.service';
 import { NavComponent } from './nav/nav.component';
 import { SearchComponent } from './search/search.component';
+import { DocumentListComponent } from './documentList/documentList.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavComponent,
-    SearchComponent
-
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    BsDropdownModule.forRoot(),
-    FormsModule,
-    JwtModule.forRoot({
-      config: {
-        tokenGetter: tokenGetter,
-        whitelistedDomains: ['localhost:44379'],
-        blacklistedRoutes: ['localhost:44379/api/auth']
-     }
-    })
+   declarations: [
+      AppComponent,
+      NavComponent,
+      SearchComponent,
+      DocumentListComponent
+   ],
+   imports: [
+      BrowserModule,
+      BrowserAnimationsModule,
+      HttpClientModule,
+      BsDropdownModule.forRoot(),
+      FormsModule,
+      JwtModule.forRoot({
+         config: {
+            tokenGetter: tokenGetter,
+            whitelistedDomains: ['localhost:44323'],
+            blacklistedRoutes: ['localhost:44323/api/auth']
+         }
+      })
   ],
   providers: [
     AlertifyService,

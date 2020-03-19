@@ -1,9 +1,9 @@
+import { Document } from './Document';
+import { Claim } from './claim';
+
 export interface Policy {
-  year: number;
-  id: number;
-  namedInsured: string;
-  policyNumber: number;
-  awsKey: number;
-  awsFolder: number
-  url: string;
+  insuredName: string;
+  policyNumber: string;
+  documents: Document[];
+  claims: Claim[];
 }

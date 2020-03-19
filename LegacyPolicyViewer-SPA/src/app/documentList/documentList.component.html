@@ -1,0 +1,15 @@
+
+
+<div class="container">
+  <div class="test">
+    
+    <p>{{policy.insuredName}}</p>
+    <ul>
+    <li *ngFor="let doc of policy.documents"><a href={{doc.url}} _Blank>{{doc.docType}}</a></li>
+    </ul>
+    <h2>Claims Documents</h2>
+    <ul>
+      <li *ngFor="let doc of policy.claims">{{doc.docType}}</li>
+      </ul>
+  </div>
+</div>

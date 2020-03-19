@@ -9,6 +9,7 @@ import { AlertifyService } from '../_services/alertify.service';
 })
 export class SearchComponent implements OnInit {
   policy: any = {};
+  documents: any = {};
 
   constructor(private policyService: PolicyService, private alertify: AlertifyService) { }
 
@@ -17,8 +18,11 @@ export class SearchComponent implements OnInit {
 
   loadPolicy() {
     this.policyService.getPolicy(this.policy.policyNumber).subscribe((res) => {
-      this.policy.url = res.url;
-      window.open(res.url, "_blank");
+      this.policy.insuredName = res.insuredName;
+      this.policy.policyNumber = res.policyNumber;
+      this.policy.documents = res.documents;
+      this.policy.claims = res.claims;
+      
 
     }, error => {
       this.alertify.error(error);
