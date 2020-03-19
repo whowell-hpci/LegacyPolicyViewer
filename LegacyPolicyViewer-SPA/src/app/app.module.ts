@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BsDropdownModule, AccordionModule } from 'ngx-bootstrap';
+import { BsDropdownModule, AccordionModule, ButtonsModule } from 'ngx-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { JwtModule } from '@auth0/angular-jwt';
@@ -31,6 +31,7 @@ export function tokenGetter() {
       HttpClientModule,
       BsDropdownModule.forRoot(),
       AccordionModule.forRoot(),
+      ButtonsModule.forRoot(),
       FormsModule,
       JwtModule.forRoot({
          config: {

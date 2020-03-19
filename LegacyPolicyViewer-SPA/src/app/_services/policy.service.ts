@@ -12,8 +12,13 @@ export class PolicyService {
 
   constructor(private http: HttpClient) { }
 
-  getPolicy(id): Observable<Policy> {
+  getPolicyByNumber(id): Observable<Policy> {
     return this.http.get<Policy>(this.baseUrl + 'policy/' + id);
+  }
+
+  getPolicyByName(id): Observable<Policy> {
+    var replacement = id.replace(" ", "%20");
+    return this.http.get<Policy>(this.baseUrl + 'policy/named/' + replacement)
   }
 
 }

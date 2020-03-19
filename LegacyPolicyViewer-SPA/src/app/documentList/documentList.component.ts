@@ -8,10 +8,20 @@ import { Policy } from '../_models/policy';
 })
 export class DocumentListComponent implements OnInit {
   @Input() policy: Policy;
+  @Input() searchMode;
   @Output() toggleSearch = new EventEmitter
+  docsExist: boolean = false;
 
   ngOnInit() {
     
+  }
+
+  documentsExist()
+  {
+    if (this.policy.documents.length > 0)
+    {
+      this.docsExist = true;
+    }
   }
 
   searchAgain(){

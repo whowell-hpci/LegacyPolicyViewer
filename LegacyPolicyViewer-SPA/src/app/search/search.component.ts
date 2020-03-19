@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { PolicyService } from '../_services/policy.service';
 import { AlertifyService } from '../_services/alertify.service';
 
@@ -9,33 +9,56 @@ import { AlertifyService } from '../_services/alertify.service';
 })
 export class SearchComponent implements OnInit {
   policy: any = {};
-  //documents: any = {};
   searchMode = false;
+  id = "";
+  disabled = false;
+  @ViewChild('searchForm') formValues;
 
   constructor(private policyService: PolicyService, private alertify: AlertifyService) { }
 
   ngOnInit() {
   }
 
+  loadPolicy() {
+    
+    if (this.policy.policyNumber != null && this.policy.insuredName == null)
+    {
+      
+      this.policyService.getPolicyByNumber(this.policy.policyNumber).subscribe((res) => {
+        this.policy.insuredName = res.insuredName;
+        this.policy.policyNumber = res.policyNumber;
+        this.policy.documents = res.documents;
+        this.policy.claims = res.claims;
+      }, error => {
+        this.alertify.error(error);
+      })
+    } 
+
+    if (this.policy.insuredName != null && this.policy.policyNumber == null)
+    {
+      
+      this.policyService.getPolicyByName(this.policy.insuredName).subscribe((res) => {
+        this.policy.insuredName = res.insuredName;
+        this.policy.policyNumber = res.policyNumber;
+        this.policy.documents = res.documents;
+        this.policy.claims = res.claims;
+      }, error => {
+        this.alertify.error(error);
+      })
+    }
+    
+    this.disabled = true;
+  }
+  
+  resetSearch(){
+    window.location.reload();
+  }
   searchToggle() {
     this.searchMode = true;
   }
 
   cancelSearchMode(searchMode: boolean) {
     this.searchMode = searchMode;
-  }
-
-  loadPolicy() {
-    this.policyService.getPolicy(this.policy.policyNumber).subscribe((res) => {
-      this.policy.insuredName = res.insuredName;
-      this.policy.policyNumber = res.policyNumber;
-      this.policy.documents = res.documents;
-      this.policy.claims = res.claims;
-      
-
-    }, error => {
-      this.alertify.error(error);
-    })
   }
 
 }

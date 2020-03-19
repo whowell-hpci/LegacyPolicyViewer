@@ -8,7 +8,17 @@
 .search-button {
   margin-top: 25px;
 }
+
+.search-button:disabled, button[disabled] {
+  opacity: 1%;
+}
 .subdued {
   text-align: center;
   opacity: 50%;
 }
+
+.btn-secondary {
+  background-color: green;
+}
+
+

@@ -1,15 +1,22 @@
-<div *ngIf="!searchMode" class="container">
-  <form class="form-search"  (ngSubmit)="loadPolicy()">
-    <h1 class="h4 mb-3 font-weight-normal">Choose a Search Method</h1>
+<div class="container">
+  <form class="form-search" #searchForm="ngForm" (ngSubmit)="loadPolicy()">
+    <h1 *ngIf="!searchMode" class="h4 mb-3 font-weight-normal">Choose a Search Method</h1>
     <label for="policyNumber" class="sr-only">Policy #</label>
-    <input type="text" class="form-control" placeholder="Policy #" name="policyNumber" [(ngModel)]="policy.policyNumber">
-    <p class="subdued mt-2">----- OR -----</p>
-    <input type="text" class="form-control mt-2" placeholder="Named Insured?" name="namedInsured">
-
-    <button  class="btn btn-lg btn-primary btn-block search-button" type="submit" (click)="searchToggle()">Search</button>
+    <input *ngIf="!searchMode" type="text" class="form-control" placeholder="Policy #" name="policyNumber" [(ngModel)]="policy.policyNumber">
+    <p *ngIf="!searchMode" class="subdued mt-2">----- OR -----</p>
+    <input *ngIf="!searchMode" type="text" class="form-control mt-2" placeholder="Named Insured?" name="namedInsured" [(ngModel)]="policy.insuredName">
+    
+    <button class="btn btn-md btn-primary btn-block search-button" [disabled]='disabled' type="submit" (click)="searchToggle()">Search</button>
+    <button *ngIf="searchMode" class="btn btn-md btn-secondary btn-block search-button" (click)="resetSearch()">Search Again</button>
+     
+    
+    
   </form>
 
+  
 
 </div>
+<div class="container">
+  <app-documentList  [policy]="policy" [searchMode]="searchMode" *ngIf="searchMode"></app-documentList>
+</div>
 
-<app-documentList (toggleSearch)="cancelSearchMode($event)" *ngIf="searchMode" [policy]=policy></app-documentList>
