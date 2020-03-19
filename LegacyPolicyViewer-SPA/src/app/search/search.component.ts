@@ -9,11 +9,20 @@ import { AlertifyService } from '../_services/alertify.service';
 })
 export class SearchComponent implements OnInit {
   policy: any = {};
-  documents: any = {};
+  //documents: any = {};
+  searchMode = false;
 
   constructor(private policyService: PolicyService, private alertify: AlertifyService) { }
 
   ngOnInit() {
+  }
+
+  searchToggle() {
+    this.searchMode = true;
+  }
+
+  cancelSearchMode(searchMode: boolean) {
+    this.searchMode = searchMode;
   }
 
   loadPolicy() {
