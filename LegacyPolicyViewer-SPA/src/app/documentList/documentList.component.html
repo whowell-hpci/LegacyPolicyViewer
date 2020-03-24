@@ -8,13 +8,13 @@
       <accordion-group heading="Click to Expand">
         <thead class="thead-dark">
           <tr>
-            <th scope="col">Policy Number</th>
+            <th scope="col">Date</th>
             <th scope="col">Document Type</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let el of policy.documents">
-            <td>{{ el.policyNumber}}</td>
+            <td>{{ el.month}}/{{el.year}}</td>
             <td>
               <a href="{{ el.url }}" target="_blank">{{ el.docType }}</a>
             </td>
