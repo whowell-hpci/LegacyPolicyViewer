@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: "http://vHPCI-CAN.hpci.local:91/api/"
+  baseUrl: "http://localhost:52803/api/"
 };
