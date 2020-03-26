@@ -1,5 +1,6 @@
+
 <div class="container">
-  <form class="form-search" #searchForm="ngForm" (ngSubmit)="loadPolicy()">
+  <form class="form-search" #searchForm="ngForm" (ngSubmit)="LoadPolicyPost()">
     <h1 *ngIf="!searchMode" class="h4 mb-3 font-weight-normal">Choose a Search Method</h1>
     <label for="policyNumber" class="sr-only">Policy #</label>
     <input *ngIf="!searchMode" type="text" class="form-control" placeholder="Policy #" name="policyNumber" [(ngModel)]="policy.policyNumber">
