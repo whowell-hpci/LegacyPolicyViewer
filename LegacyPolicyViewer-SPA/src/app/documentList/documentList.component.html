@@ -5,7 +5,8 @@
   <br />
   <table class="table mt-2">
     <accordion [isAnimated]="true">
-      <accordion-group heading="Click to Expand">
+      
+      <accordion-group heading="Click To Expand">
         <thead class="thead-dark">
           <tr>
             <th scope="col">Year</th>
@@ -15,7 +16,7 @@
         <tbody>
           <tr *ngFor="let el of policy.documents">
             
-            <td>{{el.month}}/{{el.year}}</td>
+            <td>{{el.year}}</td>
             <td>
               <a href="{{ el.url }}" target="_blank">{{ el.docType }}</a>
             </td>
@@ -35,7 +36,7 @@
         <thead class="thead-dark">
           <tr>
             <th scope="col">Claim Number</th>
-            <th scope="col">Date</th>
+            <th scope="col">Year</th>
             <th scope="col">Document Type</th>
           </tr>
         </thead>
@@ -43,7 +44,7 @@
         <tbody>
           <tr *ngFor="let el of policy.claims">
             <td>{{ el.claimId }}</td>
-            <td>{{el.month}}/{{el.year}}</td>
+            <td>{{el.year}}</td>
             <td>
               <a href="{{ el.url }}" target="_blank">{{ el.docType }}</a>
             </td>

@@ -6,6 +6,8 @@
     <input *ngIf="!searchMode" type="text" class="form-control" placeholder="Policy #" name="policyNumber" [(ngModel)]="policy.policyNumber">
     <p *ngIf="!searchMode" class="subdued mt-2">----- OR -----</p>
     <input *ngIf="!searchMode" type="text" class="form-control mt-2" placeholder="Named Insured?" name="namedInsured" [(ngModel)]="policy.insuredName">
+    <p *ngIf="!searchMode" class="subdued mt-2">----- OR -----</p>
+    <input *ngIf="!searchMode" type="text" class="form-control mt-2" placeholder="Claim Id?" name="claimId" [(ngModel)]="policy.claimId">
     
     <button class="btn btn-md btn-primary btn-block search-button" [disabled]='disabled' type="submit" (click)="searchToggle()">Search</button>
     <button *ngIf="searchMode" class="btn btn-md btn-secondary btn-block search-button" (click)="resetSearch()">Search Again</button>

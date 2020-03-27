@@ -35,7 +35,7 @@ export class PolicyService {
       'Content-Type': 'application/json'
     });
     let options = { headers: headers}
-    return this.http.post(this.baseUrl + 'policy', {policyNumber: id, type: "number"}, options);
+    return this.http.post(this.baseUrl + 'policy', {SearchId: id, type: "number"}, options);
   }
 
   getPolicyByName(id): Observable<any>
@@ -46,7 +46,18 @@ export class PolicyService {
     });
     let options = { headers: headers}
 
-    return this.http.post(this.baseUrl + 'policy', {policyNumber: id, type: "name"}, options);
+    return this.http.post(this.baseUrl + 'policy', {SearchId: id, type: "name"}, options);
+  }
+
+  getPolicyByClaim(id): Observable<any>
+  {
+    
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    let options = { headers: headers}
+
+    return this.http.post(this.baseUrl + 'policy', {SearchId: id, type: "claim"}, options);
   }
 
 }

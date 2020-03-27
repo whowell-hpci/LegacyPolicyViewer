@@ -11,6 +11,7 @@ export class DocumentListComponent implements OnInit {
   @Input() searchMode;
   @Output() toggleSearch = new EventEmitter
   docsExist: boolean = false;
+  isClicked: boolean = false;
 
   ngOnInit() {
     
@@ -27,5 +28,7 @@ export class DocumentListComponent implements OnInit {
   searchAgain(){
     this.toggleSearch.emit(false);
   }
+
+  
 
 }
