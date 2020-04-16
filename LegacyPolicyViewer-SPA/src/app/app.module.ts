@@ -13,6 +13,7 @@ import { PolicyService } from './_services/policy.service';
 import { NavComponent } from './nav/nav.component';
 import { SearchComponent } from './search/search.component';
 import { DocumentListComponent } from './documentList/documentList.component';
+import { ToggleAccordionHeaderDirective } from './_Directives/toggleAccordionHeader.directive';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -23,7 +24,8 @@ export function tokenGetter() {
       AppComponent,
       NavComponent,
       SearchComponent,
-      DocumentListComponent
+      DocumentListComponent,
+      ToggleAccordionHeaderDirective
    ],
    imports: [
       BrowserModule,

@@ -6,7 +6,7 @@
   <table class="table mt-2">
     <accordion [isAnimated]="true">
       
-      <accordion-group heading="Click To Expand">
+      <accordion-group heading="{{policyHeader}}" (click)="changePolicyHeader()">
         <thead class="thead-dark">
           <tr>
             <th scope="col">Year</th>
@@ -32,7 +32,7 @@
   <br />
   <table class="table mt-2">
     <accordion [isAnimated]="true">
-      <accordion-group heading="Click to Expand">
+      <accordion-group heading="{{claimHeader}}" (click)="changeClaimHeader()">
         <thead class="thead-dark">
           <tr>
             <th scope="col">Claim Number</th>
