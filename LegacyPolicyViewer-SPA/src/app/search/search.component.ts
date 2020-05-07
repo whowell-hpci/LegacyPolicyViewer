@@ -20,21 +20,30 @@ export class SearchComponent implements OnInit {
   }
 
   LoadPolicyPost() {
-    if (this.policy.policyNumber != null && this.policy.insuredName == null)
+    if (this.policy.policyNumber != null && this.policy.insuredName == null && this.policy.claimId == null)
     {
       this.policyService.getPolicyByNumber(this.policy.policyNumber).subscribe((res) => {
         this.policy = res;
       }, error => {
-        this.alertify.error("You could not be authenticated: " + error.errors);
+        this.alertify.error("Problem with your search: " + error.errors);
       });
     }
 
-    if (this.policy.policyNumber == null && this.policy.insuredName != null)
+    if (this.policy.policyNumber == null && this.policy.insuredName != null && this.policy.claimId == null)
     {
       this.policyService.getPolicyByName(this.policy.insuredName).subscribe((res) => {
         this.policy = res;
       }, error => {
-        this.alertify.error("You could not be authenticated: " + error.errors);
+        this.alertify.error("Problem with your search: " + error.errors);
+      });
+    }
+
+    if (this.policy.policyNumber == null && this.policy.insuredName == null && this.policy.claimId != null)
+    {
+      this.policyService.getPolicyByClaim(this.policy.claimId).subscribe((res) => {
+        this.policy = res;
+      }, error => {
+        this.alertify.error("Problem with your search: " + error.errors);
       });
     }
 

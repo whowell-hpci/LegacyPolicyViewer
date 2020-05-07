@@ -1,5 +1,5 @@
 export interface Document {
-    url: string,
+    refUrl: string,
     docType: string,
     month: string,
     year: string

@@ -13,20 +13,6 @@ export class PolicyService {
 
   constructor(private http: HttpClient) { }
 
-  
-
-  // getPolicyByNumber(id): Observable<Policy> {
-    
-    
-
-  //   return this.http.get<Policy>(this.baseUrl + 'policy/' + id);
-  // }
-
-  // getPolicyByName(id): Observable<Policy> {
-  //   var replacement = id.replace(" ", "%20");
-    
-  //   return this.http.get<Policy>(this.baseUrl + 'policy/named/' + replacement)
-  // }
 
   getPolicyByNumber(id): Observable<any>
   {
@@ -35,7 +21,7 @@ export class PolicyService {
       'Content-Type': 'application/json'
     });
     let options = { headers: headers}
-    return this.http.post(this.baseUrl + 'policy', {policyNumber: id, type: "number"}, options);
+    return this.http.post(this.baseUrl + 'policy', {SearchId: id, type: "number"}, options);
   }
 
   getPolicyByName(id): Observable<any>
@@ -46,7 +32,31 @@ export class PolicyService {
     });
     let options = { headers: headers}
 
-    return this.http.post(this.baseUrl + 'policy', {policyNumber: id, type: "name"}, options);
+    return this.http.post(this.baseUrl + 'policy', {SearchId: id, type: "name"}, options);
   }
+
+  getPolicyByClaim(id): Observable<any>
+  {
+    
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    let options = { headers: headers}
+
+    return this.http.post(this.baseUrl + 'policy', {SearchId: id, type: "claim"}, options);
+  }
+
+  getAuthorizedHeader(url): Observable<any>
+  {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    let options = { headers: headers}
+
+    var result = this.http.post(this.baseUrl + 'document/authorize', { Url: url }, options)
+    return result;
+  }
+
+
 
 }
