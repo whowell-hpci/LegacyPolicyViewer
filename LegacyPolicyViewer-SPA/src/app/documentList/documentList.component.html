@@ -11,6 +11,7 @@
           <tr>
             <th scope="col">Year</th>
             <th scope="col">Document Type</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -18,7 +19,10 @@
             
             <td>{{el.year}}</td>
             <td>
-              <a href="{{ el.url }}" target="_blank">{{ el.docType }}</a>
+              <a href="{{ el.refUrl }}" target="_blank">{{ el.docType }}</a>
+            </td>
+            <td>
+              <button class="button btn btn-sm btn-primary" style="min-width: 150px;" (click)="createPresignedUrl(el.refUrl)">View Document</button>
             </td>
           </tr>
         </tbody>
