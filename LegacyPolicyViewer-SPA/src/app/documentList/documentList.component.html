@@ -17,9 +17,11 @@
         <tbody>
           <tr *ngFor="let el of policy.documents">
             
-            <td>{{el.year}}</td>
             <td>
-              <a href="{{ el.refUrl }}" target="_blank">{{ el.docType }}</a>
+              {{el.year}}
+            </td>
+            <td>
+              {{ el.docType }}
             </td>
             <td>
               <button class="button btn btn-sm btn-primary" style="min-width: 150px;" (click)="createPresignedUrl(el.refUrl)">View Document</button>
